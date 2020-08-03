@@ -10,7 +10,7 @@ function setup() {
   background=createSprite(650,450,1300,900)
   box1=new box(560,275,30,30)
   box2=new box(590,275,30,30)
-  const newLocal = box3 = new box(620, 275, 30, 30);
+  box3 = new box(620, 275, 30, 30);
   box4=new box(650,275,30,30)
   box5=new box(680,275,30,30)
   box6=new box(710,275,30,30)
@@ -35,7 +35,7 @@ function setup() {
 function draw() {
   Engine.update(engine)
   rectMode(CENTER)
-  drawSprites();
+  drawSprites()
   box1.display();
   box2.display();
   box3.display();
@@ -65,4 +65,6 @@ function mouseDragged(){
 }
 function mouseReleased(){
   slingshot.fly();
+	Matter.Body.applyForce(polygon1.body,polygon1.body.position,{x:50,y:1});
+
 }
